@@ -1,0 +1,388 @@
+/**
+ * 控制表单输入项样式
+ */
+
+/* 统一字体大小和行高 */
+.ui-form {
+    margin-top: 30px;
+    font-style: normal;
+    /*color: #868686;*/
+    /*color: #fff;*/
+    font-weight: 700;
+    border-radius: 6px;
+    overflow: hidden;
+    /*background: #BA5CD9;*/
+}
+.ui-form label,
+.ui-form input,
+.ui-form select,
+.ui-form textarea {
+    /* font-weight: normal; */
+    line-height: 20px;
+    min-height: 20px;
+}
+.ui-form span {
+    padding-right: 5px;
+    white-space: nowrap;
+}
+/* 统一设定input,select,textarea */
+.ui-form select,
+.ui-form textarea,
+.ui-form input[type="file"],
+.ui-form input[type="text"],
+.ui-form input[type="password"],
+.ui-form input[type="datetime"],
+.ui-form input[type="datetime-local"],
+.ui-form input[type="date"],
+.ui-form input[type="month"],
+.ui-form input[type="time"],
+.ui-form input[type="week"],
+.ui-form input[type="number"],
+.ui-form input[type="email"],
+.ui-form input[type="url"],
+.ui-form input[type="search"],
+.ui-form input[type="tel"],
+.ui-form input[type="color"] {
+    display: inline-block;
+    padding: 4px 6px;
+    color: #555555;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    vertical-align: middle;
+    width: 90%;
+    height: 37px;
+    font-size: 15px;
+    min-width: 100px;
+    max-width: 300px;
+}
+
+/* 设置input,textarea的表现形式 */
+.ui-form textarea,
+.ui-form input[type="text"],
+.ui-form input[type="password"],
+.ui-form input[type="datetime"],
+.ui-form input[type="datetime-local"],
+.ui-form input[type="date"],
+.ui-form input[type="month"],
+.ui-form input[type="time"],
+.ui-form input[type="week"],
+.ui-form input[type="number"],
+.ui-form input[type="email"],
+.ui-form input[type="url"],
+.ui-form input[type="search"],
+.ui-form input[type="tel"],
+.ui-form input[type="color"]{
+    /*background-color: #ffffff;*/
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+    transition: border linear .2s, box-shadow linear .2s;
+}
+
+/* 针对设置radio,checkbox */
+.ui-form input[type="radio"],
+.ui-form input[type="checkbox"] {
+    line-height: normal;
+    height: 14px;
+    padding: 0;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* 针对设置特殊input */
+.ui-form input[type="file"],
+.ui-form input[type="image"],
+.ui-form input[type="submit"],
+.ui-form input[type="reset"],
+.ui-form input[type="button"],
+.ui-form input[type="radio"],
+.ui-form input[type="checkbox"] {
+    width: auto;
+}
+
+/* 设置textarea */
+.ui-form textarea{
+    resize: none;
+    height: auto;
+    overflow-y: auto;
+}
+
+/* 设置select */
+.ui-form select{
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #ABABAB;
+}
+
+/* 设置placeholder */
+.ui-form input:-moz-placeholder,
+.ui-form textarea:-moz-placeholder {
+    color: #999999;
+}
+.ui-form input:-ms-input-placeholder,
+.ui-form :-ms-input-placeholder {
+    color: #999999;
+}
+.ui-form input::-webkit-input-placeholder,
+.ui-form textarea::-webkit-input-placeholder {
+    color: #999999;
+}
+.ui-form input:input-placeholder,
+.ui-form :input-placeholder {
+    color: #999999;
+}
+
+/* 设置禁用或只读表单元素的样式 */
+.ui-form input[disabled],
+.ui-form select[disabled],
+.ui-form textarea[disabled],
+.ui-form input[readonly],
+.ui-form select[readonly],
+.ui-form textarea[readonly] {
+    cursor: not-allowed;
+    background-color: #eeeeee;
+}
+.ui-form input[type="radio"][disabled],
+.ui-form input[type="checkbox"][disabled],
+.ui-form input[type="radio"][readonly],
+.ui-form input[type="checkbox"][readonly] {
+    background-color: transparent;
+}
+
+/* 表单元素被选中时的样式 */
+.ui-form textarea:focus,
+.ui-form input[type="text"]:focus,
+.ui-form input[type="password"]:focus,
+.ui-form input[type="datetime"]:focus,
+.ui-form input[type="datetime-local"]:focus,
+.ui-form input[type="date"]:focus,
+.ui-form input[type="month"]:focus,
+.ui-form input[type="time"]:focus,
+.ui-form input[type="week"]:focus,
+.ui-form input[type="number"]:focus,
+.ui-form input[type="email"]:focus,
+.ui-form input[type="url"]:focus,
+.ui-form input[type="search"]:focus,
+.ui-form input[type="tel"]:focus,
+.ui-form input[type="color"]:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: 0;
+    outline: thin dotted \9;
+
+    /* IE6-9 */
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    -ms-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    -o-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+
+/* 未通过html5验证的元素样式 */
+.ui-form input:invalid, select:invalid {
+    box-shadow: none;
+}
+
+.ui-form {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.ui-form, .ui-form * {
+    list-style: none;
+}
+
+.ui-form fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* 统一input,select,textarea的高度 */
+.ui-form input,
+.ui-form select,
+.ui-form textarea{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*.ui-form input[type="radio"],*/
+/*.ui-form input[type="checkbox"] {*/
+    /*border-radius: .25rem;*/
+    /*height: 14px;*/
+/*}*/
+
+/*.ui-form input[type="radio"]:checked {*/
+    /*color: #fff;*/
+    /*background-color: #0074d9;*/
+    /*background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);*/
+/*}*/
+/*.ui-form input[type="checkbox"]:checked {*/
+    /*color: #fff;*/
+     /*background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);*/
+/*}*/
+
+
+/* 设置textarea高度 */
+.ui-form textarea{
+    height: 90px;
+}
+
+/* 设置select高度 */
+.ui-form select[multiple],
+.ui-form select[size] {
+    height: auto;
+}
+
+.ui-form .ui-form-fieldset{
+    border: 1px solid #BBC7D2;
+    margin-bottom: 25px;
+    padding: 10px;
+}
+.ui-form .ui-form-fieldset legend{
+    padding: 0 10px;
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.ui-form > p{
+    margin-bottom: 20px;
+}
+.ui-form fieldset > p{
+    margin-bottom: 20px;
+}
+
+.ui-form-item{
+    width: 100%;
+    /* margin-bottom: 20px; */
+}
+.ui-form-item:after {
+    content: '\0020';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+[class*="ui-form-item-label"]{
+    display: block;
+    padding-top: 5px;
+}
+.ui-form-item-label-right{
+    text-align: right;
+}
+
+.ui-form .ui-form-item-field{
+    display: block;
+    width: 100%;
+}
+
+.ui-form-actions{
+    text-align: center;
+}
+.ui-form-actions button{
+    margin-right: 5px;
+}
+
+/** block size **/
+input.ui-form-large,
+select.ui-form-large{
+    height: 50px;
+}
+input.ui-form-medium,
+select.ui-form-medium{
+    height: 40px;
+}
+input.ui-form-small,
+select.ui-form-small{
+    width: 90px;
+}
+input.ui-form-mini,
+select.ui-form-mini{
+    width: 45px;
+}
+/** endblock size **/
+
+.ui-form .form-button {
+    display: inline-block;
+    /*top: 0;*/
+    top: -.075rem;
+    right: -.075rem;
+    bottom: -.075rem;
+    font-size: 16px;
+    padding: .5rem 0.7rem;
+    line-height: 1.1;
+    color: #555;
+    background-color: #eee;
+    border: .075rem solid #ddd;
+    border-radius: .75rem;
+}
+
+/*
+ * File
+ */
+
+.ui-form .file {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 90%;
+    min-width: 100px;
+    max-width: 300px;
+  /* height: 15px; */
+  /* height: 2.5rem; */
+}
+.ui-form .file input {
+  min-width: 14rem;
+  margin: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.ui-form .file-custom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  /* height: 2.5rem; */
+  padding: .35rem 0.7rem;
+  line-height: 1.5;
+  /*color: #555;*/
+  background-color: #fff;
+  border: .075rem solid #ddd;
+  border-radius: .25rem;
+  box-shadow: inset 0 .2rem .4rem rgba(0,0,0,.05);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.ui-form .file-custom:before {
+  position: absolute;
+  top: -.075rem;
+  right: -.075rem;
+  bottom: -.075rem;
+  z-index: 6;
+  display: block;
+  content: "Browse";
+  /* height: 2.5rem; */
+  padding: .5rem 1rem;
+  line-height: 1.5;
+  color: #555;
+  background-color: #eee;
+  border: .075rem solid #ddd;
+  border-radius: 0 .25rem .25rem 0;
+}
+
+/* Focus */
+.ui-form .file input:focus ~ .file-custom {
+  box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9;
+}

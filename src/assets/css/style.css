@@ -1,0 +1,43 @@
+/**
+ * 绿色风格
+ */
+.green {
+    font-family: 'Arial Negreta', 'Arial';
+    color: #605855;
+    background-color: #F8F8F8;
+}
+
+.green th {
+    color: #fff;
+    background-color: #9FC35F;
+}
+
+/**
+ * 灰色风格
+ */
+.gray {
+    font-family: 'Arial Negreta', 'Arial';
+    color: #86888A;
+    background-color: #f7f7f7;
+}
+
+/**
+ * 浅蓝色风格
+ */
+.wathet {
+    font-family: 'Arial Negreta', 'Arial';
+    color: #86888A;
+    background-color: #D3E9FF;
+}
+.wathet th {
+    background-color: #C0E1FF;
+}
+
+/**
+ * 暗黑色
+ */
+.dark {
+    font-family: 'Arial Negreta', 'Arial';
+    color: #ffffff;
+    background-color: #555555;
+}

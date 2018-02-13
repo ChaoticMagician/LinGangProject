@@ -1,0 +1,93 @@
+/**
+ * 控制表格样式
+ */
+.data-table {
+  table-layout: fixed;
+  position: relative;
+  border: 1px solid rgba(0,0,0,.12);
+  border-collapse: collapse;
+  /* white-space: nowrap; */
+  font-size: 16px;
+  background-color: #fff;
+  width: 90%;
+  border-radius: 7px;
+  border: 0;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.shadow--2dp {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+.data-table thead {
+  padding-bottom: 3px;
+}
+.data-table thead th {
+  font-size: 27px;
+  /* color: black; */
+}
+.data-table th {
+  position: relative;
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+  height: 58px;
+  font-size: 16px;
+  /*color: rgba(0,0,0,.54);*/
+  /*color: rgb(117, 117, 117);*/
+  padding-bottom: 8px;
+  box-sizing: border-box;
+}
+.data-table .table-right {
+  text-align: right;
+}
+.data-table .table-center {
+  text-align: center;
+}
+
+.data-table th {
+  padding: 0 18px 12px 18px;
+  text-align: left;
+}
+.data-table tbody tr {
+  position: relative;
+  height: 48px;
+  transition-duration: .28s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-property: background-color;
+}
+.data-table td {
+  text-align: left;
+  vertical-align: unset;
+  position: relative;
+  height: 48px;
+  white-space: normal;
+  word-break: break-all;
+  max-width: 400px;
+  /* border-left: 1px solid rgba(0,0,0,.12);
+  border-right: 1px solid rgba(0,0,0,.12); */
+  border-top: 1px solid rgba(0,0,0,.12);
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  padding: 12px 18px;
+  box-sizing: border-box;
+}
+
+.data-table td p {
+  margin: 1.12em 0;
+}
+
+/*选中高亮*/
+/* .data-table tbody tr:hover {
+  background-color: #eee;
+}
+.data-table  tbody tr.is-selected {
+  background-color: #e0e0e0;
+} */
+
+
+
