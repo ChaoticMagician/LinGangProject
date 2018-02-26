@@ -33,6 +33,5 @@
 </script>
 
 <style scoped>
-.content {
-}
+
 </style>

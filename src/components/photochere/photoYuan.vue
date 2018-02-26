@@ -108,8 +108,6 @@ export default {
 }
 .slide-show {
   position: relative;
-  width:  989px;
-  height: 270px;
   overflow: hidden;
 }
 .slide-show h2 {
@@ -121,7 +119,7 @@ export default {
   /* background: #000; */
   opacity: .5;
   bottom: 0;
-  height: 30px;
+  height: 10%;
   text-align: left;
   padding-left: 15px;
 }
@@ -134,17 +132,17 @@ export default {
   background: #000;
   opacity: .5;
   bottom: 0;
-  height: 30px;
+  height: 10%;
   text-align: left;
   padding-left: 15px;
 }
 .slide-img {
   width: 100%;
+  height: 100%;
 }
 .slide-img img {
   width: 100%;
   height: 100%;
-  position: absolute;
   top: 0;
 }
 .slide-pages {
