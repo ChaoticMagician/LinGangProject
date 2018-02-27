@@ -1,33 +1,51 @@
 <template>
-    <div v-for="(product,key) in productList" class="list-left-col" >
-        <h3 class="list-left-h3" >{{product.title}}</h3>
-        <ul>
-            <li v-for="(item,key1) in product.list">
-                <i class="el-icon-success"></i>&nbsp;
-                <a :href="item.url">{{ item.name }}</a>
-                <span v-if="item.hot" class="hot-tag">HOT</span>
-            </li>
-        </ul>
+    <div  class="list-left-col" >
+    <h3>{{title}}</h3>
+    <ul>
+        <li v-for="(item,key1) in list">
+            <i class="el-icon-success"></i>&nbsp;
+            <a :href="item.url">{{ item.name }}</a>
+            <span v-if="item.hot" class="hot-tag">HOT</span>
+        </li>
+    </ul>
     </div>
 </template>
 
 <script>
 export default {
+    name: 'listDiv',
     props: {
         title: {
-            type: String,
-            default: "没有产品"
+            default: "没有标题"
         },
         list: {
             type: Array,
-            default: []
+            default: [
+            {
+              name: '假数据统计',
+              url: 'http://starcraft.com'
+            },
+            {
+              name: '假数据预测',
+              url: 'http://warcraft.com'
+            },
+            {
+              name: '假流量分析',
+              url: 'http://overwatch.com',
+              hot: true
+            },
+            {
+              name: '假广告发布',
+              url: 'http://hearstone.com'
+            }
+          ]
         }
     }
 }
 </script>
 
 <style scoped>
-.list-left-h3 {
+.list-left-col h3 {
   padding: 1px 10px 0px 10px;
   font-weight: bold;
   color: #222;
@@ -58,5 +76,6 @@ export default {
 .hot-tag {
   background: red;
   color: #fff;
+  font-size: 12px;
 }
 </style>

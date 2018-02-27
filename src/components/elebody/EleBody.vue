@@ -4,20 +4,12 @@
       <el-col :span="6" :offset="1"  >
         <div class="list-left-div">
         <h2>全部产品</h2>
-        <template v-for="(product,key) in productList" >
-          <h3 class="list-left-h3" >{{product.title}}</h3>
-          <ul>
-            <li v-for="(item,key1) in product.list">
-              <i class="el-icon-success"></i>&nbsp;
-              <a :href="item.url">{{ item.name }}</a>
-              <span v-if="item.hot" class="hot-tag">HOT</span>
-            </li>
-          </ul>
-        </template>
+        <list-div :title="productList.pc.title" :list="productList.pc.list"  ></list-div>
+        <list-div :title="productList.app.title" :list="productList.app.list"  ></list-div>
         </div>
       </el-col>
       <el-col :span="16">
-        <photoyuan class="ppt-right-div"></photoyuan>
+        <photoyuan class="ppt-right-div" :inv="inv" :slides="slides" ></photoyuan>
       </el-col>
     </el-row>
   </div>
@@ -25,11 +17,38 @@
 
 <script>
 import photoyuan from '@/components/photochere/photoYuan.vue'
+import listDiv from '@/components/elebody/listdiv.vue'
 export default {
   name: 'EleBody',
-  components: {photoyuan},
+  components: {photoyuan,listDiv},
   data () {
     return {
+      el: "test",
+      //这是轮播图的数据部分
+      inv: 4500,
+      slides: [
+        {
+          src: require('../../assets/img/temp/lingang1.jpg'),
+          title: '俯视美景',
+          href: 'null'
+        },
+        {
+          src: require('../../assets/img/temp/lingang2.jpg'),
+          title: '商务楼宇',
+          href: 'null'
+        },
+        {
+          src: require('../../assets/img/temp/lingang3.jpg'),
+          title: '滨海桥',
+          href: 'null'
+        },
+        {
+          src: require('../../assets/img/temp/lingang4.jpg'),
+          title: '海河夜景',
+          href: 'null'
+        }
+      ],
+      //这是list的数据部分
       productList: {
         pc: {
           title: 'PC产品',
@@ -98,38 +117,5 @@ export default {
   padding: 10px 15px;
   text-align: left;
   margin: 10px 0;
-}
-.list-left-h3 {
-  padding: 1px 10px 0px 10px;
-  font-weight: bold;
-  color: #222;
-  text-align: left;
-  font-size: 14px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.list-left-div ul {
-  padding: 0 20px;
-  margin: 0;
-}
-.list-left-div li {
-  list-style: none;
-  padding: 1px 0;
-  /* padding: 5px; */
-}
-.list-left-div a {
-  text-decoration: none;
-  color: rgb(61, 61, 61);
-  /* padding: 5px; */
-}
-.list-left-div i {
-  text-decoration: none;
-  color: #71cca3;
-  /* padding: 5px; */
-}
-.hot-tag {
-  background: red;
-  color: #fff;
-  font-size: 12px;
 }
 </style>

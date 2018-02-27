@@ -27,33 +27,20 @@
 
 <script>
 export default {
+  props: {
+    slides: {
+      type: Array,
+      default: []
+    },
+    inv: {
+      type: Number,
+      default: 1000
+    }
+  },
   data () {
     return {
       nowIndex: 0,
-      isShow: true,
-      inv: 4500,
-      slides: [
-        {
-          src: require('../../assets/img/temp/lingang1.jpg'),
-          title: '俯视美景',
-          href: 'null'
-        },
-        {
-          src: require('../../assets/img/temp/lingang2.jpg'),
-          title: '商务楼宇',
-          href: 'null'
-        },
-        {
-          src: require('../../assets/img/temp/lingang3.jpg'),
-          title: '滨海桥',
-          href: 'null'
-        },
-        {
-          src: require('../../assets/img/temp/lingang4.jpg'),
-          title: '海河夜景',
-          href: 'null'
-        }
-      ]
+      isShow: true
     }
   },
   computed: {
