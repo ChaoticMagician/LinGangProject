@@ -1,17 +1,17 @@
 <template>
-  <div>
+  <div >
     <div class="right-list"
     v-for="(item, index) in boardList"
     :class="{'right-list-right' : index % 2 !==0}"
     >
-      <img :src='item.urll'/>
-      <h3>{{item.title}}</h3>
-      <p>{{item.description}}</p>
-      <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
+      <div :style="{background: 'url('+item.urll+') no-repeat',backgroundPosition: '12px'}">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
+        </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
     name: 'imgList',
@@ -52,10 +52,24 @@ export default {
     }
 }
 </script>
-
 <style scoped>
+.right-list{
+  width: 400px;
+  margin: 10px 0 0 0;
+  background-color: #ffffff;
+  box-shadow: 0 0 1px #ddd;
+}
+.right-list h3{
+  display: inline;
+}
+.right-list div{
+  min-height: 125px;
+  padding-left: 120px;
 
-
-
+}
+.right-list p{
+}
+.button{
+}
 
 </style>

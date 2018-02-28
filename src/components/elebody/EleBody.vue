@@ -9,7 +9,7 @@
       </el-col>
       <el-col :span="16">
         <photoyuan class="ppt-right-div" :inv="inv" :slides="slides" ></photoyuan>
-        <img-list :boardList="boardList" ></img-list>
+        <img-list :boardList="boardList" class="ppt-right-div" ></img-list>
       </el-col>
     </el-row>
   </div>
