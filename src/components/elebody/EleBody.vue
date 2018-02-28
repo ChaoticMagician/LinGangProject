@@ -4,8 +4,7 @@
       <el-col :span="6" :offset="1"  >
         <div class="list-left-div">
         <h2>全部产品</h2>
-        <list-div :title="productList.pc.title" :list="productList.pc.list"  ></list-div>
-        <list-div :title="productList.app.title" :list="productList.app.list"  ></list-div>
+        <list-div :productList="productList" ></list-div>
         </div>
       </el-col>
       <el-col :span="16">
@@ -17,7 +16,7 @@
 
 <script>
 import photoyuan from '@/components/photochere/photoYuan.vue'
-import listDiv from '@/components/elebody/listdiv.vue'
+import listDiv from '@/components/elebody/listdivtest.vue'
 export default {
   name: 'EleBody',
   components: {photoyuan,listDiv},
