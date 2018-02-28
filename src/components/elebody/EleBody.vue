@@ -9,6 +9,7 @@
       </el-col>
       <el-col :span="16">
         <photoyuan class="ppt-right-div" :inv="inv" :slides="slides" ></photoyuan>
+        <img-list :boardList="boardList" ></img-list>
       </el-col>
     </el-row>
   </div>
@@ -16,13 +17,44 @@
 
 <script>
 import photoyuan from '@/components/photochere/photoYuan.vue'
-import listDiv from '@/components/elebody/listdivtest.vue'
+import listDiv from '@/components/elebody/listdiv.vue'
+import imgList from '@/components/elebody/imglist.vue'
 export default {
   name: 'EleBody',
-  components: {photoyuan,listDiv},
+  components: {photoyuan,listDiv,imgList},
   data () {
     return {
-      el: "test",
+      //购买产品数据json
+        boardList: [
+        {
+          title: '开放产品',
+          description: '开放产品是一款开放产品',
+          urll: '/static/projectlogo/car.png',
+          toKey: 'analysis',
+          saleout: false
+        },
+        {
+          title: '品牌营销',
+          description: '品牌营销帮助你的产品更好地找到定位',
+          urll: '/static/projectlogo/earth.png',
+          toKey: 'count',
+          saleout: false
+        },
+        {
+          title: '使命必达',
+          description: '使命必达快速迭代永远保持最前端的速度',
+          urll: '/static/projectlogo/loud.png',
+          toKey: 'forecast',
+          saleout: true
+        },
+        {
+          title: '勇攀高峰',
+          description: '帮你勇闯高峰，到达事业的顶峰',
+          urll: '/static/projectlogo/hill.png',
+          toKey: 'publish',
+          saleout: false
+        }
+       ],
       //这是轮播图的数据部分
       inv: 4500,
       slides: [
