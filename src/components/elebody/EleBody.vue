@@ -9,7 +9,7 @@
       </el-col>
       <el-col :span="16">
         <photoyuan class="ppt-right-div" :inv="inv" :slides="slides" ></photoyuan>
-        <img-list :boardList="boardList" class="ppt-right-div" ></img-list>
+        <img-list :boardList="boardList" class="imglist-right-div" ></img-list>
       </el-col>
     </el-row>
   </div>
@@ -21,11 +21,22 @@ import listDiv from '@/components/elebody/listdiv.vue'
 import imgList from '@/components/elebody/imglist.vue'
 export default {
   name: 'EleBody',
+  created: function() {
+    this.$http.get('api/getNewsList')
+    .then(
+      (res) => {
+        this.newsList = res.data
+      },
+      (err) => {
+        console.log(err)
+      })
+  },
   components: {photoyuan,listDiv,imgList},
   data () {
     return {
+      newsList: [],
       //购买产品数据json
-        boardList: [
+      boardList: [
         {
           title: '开放产品',
           description: '开放产品是一款开放产品',
@@ -35,17 +46,31 @@ export default {
         },
         {
           title: '品牌营销',
-          description: '品牌营销帮助你的产品更好地找到定位',
+          description: '帮助你的产品更好地找到定位',
           urll: '/static/projectlogo/earth.png',
           toKey: 'count',
           saleout: false
         },
         {
           title: '使命必达',
-          description: '使命必达快速迭代永远保持最前端的速度',
+          description: '快速迭代永远保持最前端的速度',
           urll: '/static/projectlogo/loud.png',
           toKey: 'forecast',
           saleout: true
+        },
+        {
+          title: '勇攀高峰',
+          description: '帮你勇闯高峰，到达事业的顶峰',
+          urll: '/static/projectlogo/hill.png',
+          toKey: 'publish',
+          saleout: false
+        },
+        {
+          title: '勇攀高峰',
+          description: '帮你勇闯高峰，到达事业的顶峰',
+          urll: '/static/projectlogo/hill.png',
+          toKey: 'publish',
+          saleout: false
         },
         {
           title: '勇攀高峰',
@@ -137,10 +162,17 @@ export default {
   width: 99%;
   height: 300px;
   margin: 10px;
+  box-shadow: 0 0 1px #ddd;
+}
+.imglist-right-div{
+  width: 99%;
+  margin: 10px;
 }
 .list-left-div{
   background: #ffffff;
+  box-shadow: 0 0 1px #ddd;
 }
+
 .list-left-div h2{
   background: #4fc08d;
   color: #fff;
