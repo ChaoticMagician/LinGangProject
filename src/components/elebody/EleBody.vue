@@ -5,6 +5,7 @@
         <div class="list-left-div">
         <h2>全部产品</h2>
         <list-div :productList="productList" ></list-div>
+        <list-div :productList="productList1" ></list-div>
         </div>
       </el-col>
       <el-col :span="16">
@@ -22,10 +23,10 @@ import imgList from '@/components/elebody/imglist.vue'
 export default {
   name: 'EleBody',
   created: function() {
-    this.$http.get('api/getNewsList')
+    this.$http.get('api/productList')
     .then(
       (res) => {
-        this.newsList = res.data
+        this.productList1 = res.data.productList
       },
       (err) => {
         console.log(err)
@@ -35,6 +36,7 @@ export default {
   data () {
     return {
       newsList: [],
+      productList1: {},
       //购买产品数据json
       boardList: [
         {
