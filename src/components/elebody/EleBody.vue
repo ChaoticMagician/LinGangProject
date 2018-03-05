@@ -5,7 +5,7 @@
         <div class="list-left-div">
         <h2>全部产品</h2>
         <list-div :productList="productList" ></list-div>
-        <list-div :productList="productList1" ></list-div>
+        <list-div :productList="productListone" ></list-div>
         </div>
       </el-col>
       <el-col :span="16">
@@ -24,11 +24,9 @@ export default {
   name: 'EleBody',
   created: function() {
     this.$http.get('api/productList')
-    .then(
-      (res) => {
-        this.productList1 = res.data.productList
-      },
-      (err) => {
+    .then((res) => {
+        this.productListone = res.data.data
+      },(err) => {
         console.log(err)
       })
   },
@@ -36,7 +34,7 @@ export default {
   data () {
     return {
       newsList: [],
-      productList1: {},
+      productListone: {},
       //购买产品数据json
       boardList: [
         {

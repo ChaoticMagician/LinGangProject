@@ -1,19 +1,44 @@
 <template>
   <div id="app">
-    <ele-head id="firathead">
+    <ele-head id="firathead" 
+    :username="username"
+    :issuccess="issuccess"
+    @on-open='openslot'
+    >
     </ele-head>
     <router-view class="allcompoents"></router-view>
     <ele-foot id="firafoot">
     </ele-foot>
+    <user-slot :isShow='logif' ></user-slot>
   </div>
 </template>
 
 <script>
-import eleHead from '@/components/elhead/ElHead'
+import userSlot from '@/components/elhead/userslot'
 import eleFoot from '@/components/elfoot/ElFoot'
+import eleHead from '@/components/elhead/ElHead'
 export default {
   name: 'App',
-  components: {eleHead, eleFoot}
+  components: {eleHead, eleFoot, userSlot},
+  data (){
+    return{
+      username: 'liguo',
+      issuccess: false,
+      logif: false
+      
+    }
+  },
+  methods: {
+    openslot: function (nu){
+      switch (nu){
+        case 1:console.log (nu);break;
+        case 2:console.log (nu);break;
+        case 3:console.log (nu);break;
+        case 4:console.log (nu);break;
+        default: null;
+      }
+    }
+  }
 }
 </script>
 
@@ -25,6 +50,8 @@ export default {
   color: #2c3e50;
   width: 100%;
   height: 972px;
+  overflow-x: hidden;
+  overflow-y: hidden; 
 }
 .allcompoents {
   /* width: 988px;
