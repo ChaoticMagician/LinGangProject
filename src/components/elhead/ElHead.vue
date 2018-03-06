@@ -24,10 +24,10 @@
     <el-menu-item index="4">订单管理</el-menu-item>
     <!-- 这里是用户登陆的组块 -->
       <ul class="userloder-ul">
-        <li v-if="issuccess" @click="MyClick(4)">欢迎&nbsp;&nbsp;&nbsp;{{username}}</li>
-        <li index="6" v-if="issuccess" @click="MyClick('3')">注销</li>
-        <li index="7" v-if="!issuccess" @click="logClick">登录</li>
-        <li index="8" v-if="!issuccess" @click="MyClick('2')">注册</li>
+        <li v-if="issuccess" @click="MyClickCover(4)">欢迎&nbsp;&nbsp;&nbsp;{{username}}</li>
+        <li index="6" v-if="issuccess" @click="MyClickCover(3)">注销</li>
+        <li index="7" v-if="!issuccess" @click="MyClickCover(1)">登录</li>
+        <li index="8" v-if="!issuccess" @click="MyClickCover(2)">注册</li>
       </ul>
     </el-menu>
 </template>
@@ -50,17 +50,11 @@ export default {
     }
   },
   methods: {
-    logClick (){
+    logClick:function (){
         this.$emit('on-open',1)
     },
-    MyClickCover (nu) {
-      switch (nu){
-        case 1:this.$emit('on-open',1);break;
-        case 2:this.$emit('on-open',2);break;
-        case 3:this.$emit('on-open',3);break;
-        case 4:this.$emit('on-open',4);break;
-        default: null;
-      }
+    MyClickCover:function (nu) {
+      this.$emit('on-open',nu);
     }
   }
 }

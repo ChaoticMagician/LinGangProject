@@ -9,17 +9,20 @@
     <router-view class="allcompoents"></router-view>
     <ele-foot id="firafoot">
     </ele-foot>
-    <user-slot :isShow='logif' ></user-slot>
+    <user-slot :isShow='logif' @closeall='closeall'>
+      <user-land></user-land>
+    </user-slot>
   </div>
 </template>
 
 <script>
-import userSlot from '@/components/elhead/userslot'
+import userLand from '@/components/elslot/userland'
+import userSlot from '@/components/elslot/userslot'
 import eleFoot from '@/components/elfoot/ElFoot'
 import eleHead from '@/components/elhead/ElHead'
 export default {
   name: 'App',
-  components: {eleHead, eleFoot, userSlot},
+  components: {eleHead, eleFoot, userSlot,userLand},
   data (){
     return{
       username: 'liguo',
@@ -31,12 +34,15 @@ export default {
   methods: {
     openslot: function (nu){
       switch (nu){
-        case 1:console.log (nu);break;
+        case 1:this.logif = true;break;
         case 2:console.log (nu);break;
         case 3:console.log (nu);break;
         case 4:console.log (nu);break;
         default: null;
       }
+    },
+    closeall: function (){
+      this.logif = false
     }
   }
 }

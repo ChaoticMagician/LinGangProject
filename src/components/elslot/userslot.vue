@@ -1,12 +1,12 @@
 <template>
-  <el-row class='slot-wrap' type="flex" justify="center" align="center" >
-    <div class="slot-cover" v-if="isShow" ></div>
+  <el-row class='slot-wrap' type="flex" justify="center" align="center">
+    <div class="slot-cover" v-if="isShow" @click="closemyself"></div>
   <transition name="drop">
     <el-col span="12" offset="6"
     class="slot-content"
     v-if="isShow">
-      <p class="slot-close" ><i class="el-icon-close"></i></p>
-      <slot>empty</slot>
+      <p class="slot-close" @click="closemyself" ><i class="el-icon-close"></i></p>
+      <slot class="slot-self">empty</slot>
     </el-col>
   </transition>
   </el-row>
@@ -19,6 +19,11 @@ export default {
     isShow: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    closemyself: function (){
+      this.$emit('closeall')
     }
   }
 }
@@ -50,12 +55,12 @@ export default {
   opacity: .5;
   top: 0em;
 }
-.slot-content{
+.slot-content {
   position: fixed;
   top: 25%;
   height: auto;
   width: auto;
-  padding: 10px 50px 0 50px;
+  padding: 25px 60px 0 60px;
   border: 2px solid rgb(218, 216, 216);
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -64,28 +69,31 @@ export default {
   background-color: #fff;
   overflow: hidden;
 }
-.slot-close{
+.slot-close {
   position: absolute;
-  right: -4px;
-  top: -4px;
-  width: 30px;
-  height: 30px;
+  right: -11px;
+  top: -11px;
+  width: 40px;
+  height: 40px;
   margin: 0;
   display:table-cell;
   vertical-align:bottom;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bolder;
   background: #4fc08d;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
 
 }
-.el-icon-close{
+.el-icon-close {
   color: #ffffff;
   position: absolute;
   left: 1px;
   bottom: 1px;
   font-weight: bold;
+}
+.slot-self {
+  margin: 0 auto;
 }
 </style>
