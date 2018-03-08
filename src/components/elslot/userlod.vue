@@ -4,12 +4,15 @@
     用户名：<el-input type="input"
     size="medium"
     placeholder="请输入内容"
+    v-model="username"
     clearable/><br/>
     密&emsp;码：<el-input type="input"
     size="medium"
     placeholder="请输入内容"
+    v-model="userpoword"
     clearable/><br/>
-    <el-button size="medium" round class="user-land-button" >登&emsp;陆</el-button>
+    <p class="errorim">{{nameerrorim.errorim}}{{passworderrorim.errorim}}</p>
+    <el-button size="medium" round class="user-land-button" @click="lodthis" >登&emsp;陆</el-button>
      <!-- 这里是登陆面板底部的动画,,,,,,本来要做动画的做了一天做不出来，先不做了 -->
     <div class="user-land-svg"></div>
   </div>
@@ -17,7 +20,52 @@
 
 <script>
 export default {
-    name: 'userland'
+    name: 'userland',
+    data () {
+      return{
+        username:'',
+        userpoword: ''
+      }
+    },
+    computed: {
+      nameerrorim: function (){
+        let iferror,errorim
+        if(!/@/g.test(this.username)){
+          iferror = true,
+          errorim = '用户名缺少“@”，'
+        }else{
+          iferror =false,
+          errorim = ''
+        }
+        if (!this.username) {
+          errorim = ''
+        }
+        return {
+          iferror,errorim
+        }
+      },
+      passworderrorim: function (){
+        let iferror,errorim
+        if(!/^\w{1,6}$/g.test(this.userpoword)){
+          iferror = true,
+          errorim = '密码为1-6位字母数字'
+        }else{
+          iferror =false,
+          errorim = ''
+        }
+        if (!this.userpoword) {
+          errorim = ''
+        }
+        return {
+          iferror,errorim
+        }
+      },
+    },
+    methods: {
+      lodthis:  function(){
+        console.log(this.username,this.userpoword)
+      }
+    }
 }
 </script>
 
@@ -46,6 +94,11 @@ export default {
   margin: 10px 0 0 140px;
   color: #ffffff;
   background-color: #4fc08d;
+}
+.errorim{
+  margin: 0;
+  color: red;
+  text-align: center;
 }
 .user-land-svg{
   position:  absolute;

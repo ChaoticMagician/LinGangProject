@@ -13,9 +13,9 @@
     <h2>{{ slides[nowIndex].title }}
     <ul class="slide-pages">
       <li @click="goto(prevIndex)">&lt;</li>
-      <li v-for="(item, index) in slides"
+      <li v-for="(item,index) in slides"
       @click="goto(index)"
-      :key="item"
+      :key="index"
       >
         <a :class="{on: index === nowIndex}">{{ index + 1 }}</a>
       </li>

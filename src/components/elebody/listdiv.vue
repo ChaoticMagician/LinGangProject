@@ -18,7 +18,7 @@ export default {
     name: 'listDiv',
     props: {
       productList: {
-          type: Array,
+          type: Object,
           default: {
             pc: {
               title: 'PC产品',

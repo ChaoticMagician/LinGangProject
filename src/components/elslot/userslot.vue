@@ -2,7 +2,7 @@
   <el-row class='slot-wrap' type="flex" justify="center" align="center">
     <div class="slot-cover" v-if="isShow" @click="closemyself"></div>
   <transition name="drop">
-    <el-col span="12" offset="6"
+    <el-col :span="12" :offset="6"
     class="slot-content"
     v-if="isShow">
       <p class="slot-close" @click="closemyself" ><i class="el-icon-close"></i></p>
