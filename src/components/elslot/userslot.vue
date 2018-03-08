@@ -37,10 +37,10 @@ export default {
   transition: all .3s ease;
 }
 .drop-enter {
-  transform: translateY(-500px);
+  transform: translateY(-750px);
 }
 .drop-leave-active {
-  transform: translateY(-500px);
+  transform: translateY(-750px);
 }
 .slot-wrap {
   position: fixed;

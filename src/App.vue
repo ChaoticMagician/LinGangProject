@@ -9,40 +9,72 @@
     <router-view class="allcompoents"></router-view>
     <ele-foot id="firafoot">
     </ele-foot>
+    <!-- 用户登录 -->
     <user-slot :isShow='logif' @closeall='closeall'>
-      <user-land></user-land>
+      <user-lod></user-lod>
+    </user-slot>
+    <!-- 用户注册 -->
+    <user-slot :isShow='loginif' @closeall='closeall'>
+      <user-lodin></user-lodin>
+    </user-slot>
+    <!-- 个人中心 -->
+    <user-slot :isShow='Personalif' @closeall='closeall'>
+      你好！！这里是个人中心，不能给你提供任何服务的
+    </user-slot>
+    <!-- 注销登陆 -->
+    <user-slot :isShow='downlodif' @closeall='closeall'>
+      是否退出该账户？
+    </user-slot>
+
+    <!-- 系统问题弹窗 -->
+    <user-slot :isShow='errorwordif' @closeall='closeall'>
+      现在还没有错误可以弹窗，，就问你厉不厉害！！！
     </user-slot>
   </div>
 </template>
 
 <script>
-import userLand from '@/components/elslot/userland'
+import userLodin from '@/components/elslot/userlogin'
+import userLod from '@/components/elslot/userlod'
 import userSlot from '@/components/elslot/userslot'
 import eleFoot from '@/components/elfoot/ElFoot'
 import eleHead from '@/components/elhead/ElHead'
 export default {
   name: 'App',
-  components: {eleHead, eleFoot, userSlot,userLand},
+  components: {eleHead, eleFoot, userSlot,userLod,userLodin},
   data (){
     return{
       username: 'liguo',
-      issuccess: false,
-      logif: false
-      
+      issuccess: false, //是否登陆成功
+      // 这里之下是solt的开启控制数据
+      logif: false,
+      loginif: false,
+      Personalif: false,
+      downlodif: false,
+      errorwordif: false
+      // 这里之上是solt的开启控制数据
+
+
+
     }
   },
   methods: {
     openslot: function (nu){
       switch (nu){
         case 1:this.logif = true;break;
-        case 2:console.log (nu);break;
-        case 3:console.log (nu);break;
-        case 4:console.log (nu);break;
+        case 2:this.loginif = true;break;
+        case 3:this.Personalif = true;break;
+        case 4:this.downlodif = true;break;
+        case 5:this.errorwordif = true;break;
         default: null;
       }
     },
     closeall: function (){
-      this.logif = false
+      this.logif = false,
+      this.loginif = false,
+      this.Personalif = false,
+      this.downlodif = false,
+      this.errorwordif = false
     }
   }
 }
