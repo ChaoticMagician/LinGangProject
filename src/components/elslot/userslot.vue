@@ -60,7 +60,7 @@ export default {
   top: 25%;
   height: auto;
   width: auto;
-  padding: 25px 60px 0 60px;
+  padding: 30px 45px 0 45px;
   border: 2px solid rgb(218, 216, 216);
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;

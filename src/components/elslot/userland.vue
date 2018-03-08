@@ -1,15 +1,23 @@
 <template>
   <div class="user-land">
-    用户名：<el-input type="input" size="medium"/><br/><br/><br/>
-    密&emsp;码：<el-input type="input" size="medium"/><br/><br/><br/>
-    <el-button size="medium" round class="user-land-button" >登陆</el-button>
+    <h3>用户登录</h3>
+    用户名：<el-input type="input"
+    size="medium"
+    placeholder="请输入内容"
+    clearable/><br/>
+    密&emsp;码：<el-input type="input"
+    size="medium"
+    placeholder="请输入内容"
+    clearable/><br/>
+    <el-button size="medium" round class="user-land-button" >登&emsp;陆</el-button>
+     <!-- 这里是登陆面板底部的动画,,,,,,本来要做动画的做了一天做不出来，先不做了 -->
+    <div class="user-land-svg"></div>
   </div>
 </template>
 
 <script>
 export default {
     name: 'userland'
-  
 }
 </script>
 
@@ -17,17 +25,36 @@ export default {
 .user-land {
   width: 300px;
   height: 300px;
-  padding-top: 80px;
+  padding-top: 0;
   font-size: 16px;
-  
   float: left;
+}
+.user-land h3 {
+  width: 300px;
+  color: #68ecb1;
+  text-align: center;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(90, 90, 90, 0.657);
 }
 .el-input {
   width: 230px;
+  margin-bottom: 10px;  
 }
 .el-button{
-  margin: 0 130px;
+  margin: 10px 0 0 140px;
   color: #ffffff;
   background-color: #4fc08d;
+}
+.user-land-svg{
+  position:  absolute;
+  bottom:  0px;
+  width: 390px;
+  height:  90px;
+  left: 0;
+  background: url(../../../static/wave/城市剪影.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 </style>

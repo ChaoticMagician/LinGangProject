@@ -64,6 +64,7 @@ export default {
   height: 270px;*/
   width: 99.6%;
   height: 830px;
+  /* height: auto; */
   padding: 4px;
   background: #f5f5f5;
 }
