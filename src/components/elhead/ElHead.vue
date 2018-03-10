@@ -23,8 +23,8 @@
     <el-menu-item index="4">订单管理</el-menu-item>
     <!-- 这里是用户登陆的组块 -->
       <ul class="userloder-ul">
-        <li v-if="issuccess" @click="MyClickCover(4)">欢迎&nbsp;&nbsp;&nbsp;{{username}}</li>
-        <li index="6" v-if="issuccess" @click="MyClickCover(3)">注销</li>
+        <li v-if="issuccess" @click="MyClickCover(3)">欢迎&nbsp;&nbsp;&nbsp;{{username}}</li>
+        <li index="6" v-if="issuccess" @click="MyClickCover(4)">注销</li>
         <li index="7" v-if="!issuccess" @click="MyClickCover(1)">登录</li>
         <li index="8" v-if="!issuccess" @click="MyClickCover(2)">注册</li>
       </ul>

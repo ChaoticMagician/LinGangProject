@@ -11,7 +11,7 @@
     placeholder="请输入内容"
     v-model="userpoword"
     clearable/><br/>
-    <p class="errorim">{{nameerrorim.errorim}}{{passworderrorim.errorim}}</p>
+    <p class="errorim">{{errorText}}{{nameerrorim.errorim}}{{passworderrorim.errorim}}</p>
     <el-button size="medium" round class="user-land-button" @click="lodthis" >登&emsp;陆</el-button>
      <!-- 这里是登陆面板底部的动画,,,,,,本来要做动画的做了一天做不出来，先不做了 -->
     <div class="user-land-svg"></div>
@@ -24,7 +24,8 @@ export default {
     data () {
       return{
         username:'',
-        userpoword: ''
+        userpoword: '',
+        errorText: ''
       }
     },
     computed: {
@@ -32,7 +33,8 @@ export default {
         let iferror,errorim
         if(!/@/g.test(this.username)){
           iferror = true,
-          errorim = '用户名缺少“@”，'
+          errorim = '用户名缺少“@”，',
+          this.errorText = ''
         }else{
           iferror =false,
           errorim = ''
@@ -48,7 +50,8 @@ export default {
         let iferror,errorim
         if(!/^\w{1,6}$/g.test(this.userpoword)){
           iferror = true,
-          errorim = '密码为1-6位字母数字'
+          errorim = '密码为1-6位字母数字',
+          this.errorText = ''
         }else{
           iferror =false,
           errorim = ''
@@ -64,6 +67,20 @@ export default {
     methods: {
       lodthis:  function(){
         console.log(this.username,this.userpoword)
+        if(this.nameerrorim.iferror||this.passworderrorim.iferror){
+          this.errorText = ''
+        }else if(!this.username||!this.userpoword){
+          this.errorText = '用户名或密码为空'
+        }else{
+          this.errorText = ''
+          this.$http.get('api/login')
+          .then((res) => {
+            this.$emit('lod-success', res.data.data),
+            this.$emit('closeall')
+          }, (error) => {
+            console.log(error)
+          })
+        }
       }
     }
 }

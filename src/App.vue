@@ -11,7 +11,7 @@
     </ele-foot>
     <!-- 用户登录 -->
     <user-slot :isShow='logif' @closeall='closeall'>
-      <user-lod></user-lod>
+      <user-lod @lod-success='lodsuccess' @closeall='closeall' ></user-lod>
     </user-slot>
     <!-- 用户注册 -->
     <user-slot :isShow='loginif' @closeall='closeall'>
@@ -23,7 +23,8 @@
     </user-slot>
     <!-- 注销登陆 -->
     <user-slot :isShow='downlodif' @closeall='closeall'>
-      是否退出该账户？
+      是否注销该账户？<br/>
+      <el-button size="medium" round @click="downlod" type="success" >注&emsp;销</el-button>
     </user-slot>
 
     <!-- 系统问题弹窗 -->
@@ -45,6 +46,7 @@ export default {
   data (){
     return{
       username: 'liguo',
+      userId: '321',
       issuccess: false, //是否登陆成功
       // 这里之下是solt的开启控制数据
       logif: false,
@@ -75,6 +77,18 @@ export default {
       this.Personalif = false,
       this.downlodif = false,
       this.errorwordif = false
+    },
+
+    lodsuccess: function (userlodim){
+      this.username = userlodim.username,
+      this.userId = userlodim.userId,
+      this.issuccess = true
+    },
+    downlod: function (){
+      this.username = "",
+      this.userId = "",
+      this.issuccess = false,
+      this.downlodif = false
     }
   }
 }
