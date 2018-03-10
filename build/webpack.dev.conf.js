@@ -18,6 +18,8 @@ var productList = appData.productList//获取对应的本地数据
 var getNewsList = appData.getNewsList
 var login = appData.login
 var getOrderList = appData.getOrderList
+var product = appData.product
+var imgMap = appData.imgMap
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)//通过路由请求数据
 
@@ -77,6 +79,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         res.json({
           errno: 0,
           data: getOrderList
+        })
+      }),
+      app.get('/api/product', (req, res) => {
+        res.json({
+          errno: 0,
+          data: product
+        })
+      }),
+      app.get('/api/imgMap', (req, res) => {
+        res.json({
+          errno: 0,
+          data: imgMap
         })
       })
     }
