@@ -14,9 +14,9 @@ export default {
         }
     },
     created: function(){
-      this.$http.get('/api/buyPageInfo').then(
+      this.$http.get('/api/product').then(
           (res)=>{
-              this.product = res.data
+              this.product = res.data.data
           },(err) => {
               console.log(err)
           }

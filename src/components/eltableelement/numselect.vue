@@ -1,6 +1,8 @@
 <template>
   <div class="numselect" :style='{background:configinfo.bgcolor}' >
-      {{configinfo.bgcolor}}
+      <div class="numselect-btn" @click="minus" > - </div>
+      <input type="text" class="numselect-input" v-model="num" @keyup="inputnum" >
+      <div class="numselect-btn" @click="add" > + </div>
   </div>
 </template>
 
@@ -17,15 +19,73 @@ export default {
             bgcolor: "#ffffff"
           }
       }
+  },
+  data (){
+    return{
+    num: this.configinfo.minnum
+    }
+  },
+  watch: {
+    num: function(newnum,oldnum){
+      this.$emit('on-chance',this.num)
+    }
+  },
+  methods: {
+    inputnum () {
+        let fix
+        fix = Number(this.num.toString().replace(/\D/g, ''))
+        if (fix > this.configinfo.maxnum || fix < this.configinfo.minnum) {
+        fix = this.configinfo.minnum
+      }
+        this.num = fix
+    },
+    minus () {
+        if (this.num <= this.configinfo.minnum) {
+        return
+    }
+        this.num --
+    },
+    add () {
+        if (this.num >= this.configinfo.maxnum) {
+        return
+    }
+        this.num ++
+    }
   }
 }
 </script>
 
 <style scoped>
-.numselect{
-    height: 12px;
-    width: 20px;
-    border: black solid 1px;
-
+.numselect {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
 }
+.numselect-input {
+  float: left;
+  border: none;
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  height: 23px;
+  width: 30px;
+  line-height: 23px;
+  outline: none;
+  text-indent: 4px;
+}
+.numselect-btn {
+  border: 1px solid #e3e3e3;
+  float: left;
+  height: 25px;
+  line-height: 25px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.numselect-btn:hover {
+  border-color: #4fc08d;
+  background: #4fc08d;
+  color: #fff;
+}
+
 </style>

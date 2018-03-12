@@ -5,9 +5,10 @@
         <table v-for="(item,index) in productInfo.table" :key="index" >
             <tr>
                 <td>{{item.title}}:</td>
-                <td><component :is="item.type" :configinfo="item.vminfo" ></component></td>
+                <td><component :is="item.type" :configinfo="item.vminfo"  ></component></td>
             </tr>
         </table>
+        <el-button size="medium" round class="buy-right-button" >购&emsp;买</el-button>
     </div>
 </template>
 
@@ -44,5 +45,9 @@ export default {
     background-color: #ffffff;
     box-shadow: 4 4 1px #ddd;
     text-align:center;
+}
+.buy-right-button{
+    background-color: #4fc08d;
+    color: #ffffff;
 }
 </style>
