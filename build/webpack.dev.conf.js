@@ -20,6 +20,7 @@ var login = appData.login
 var getOrderList = appData.getOrderList
 var product = appData.product
 var imgMap = appData.imgMap
+var buyPageInfo = appData.buyPageInfo
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)//通过路由请求数据
 
@@ -92,6 +93,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           errno: 0,
           data: imgMap
         })
+      }),
+      app.get('/api/buyPageInfo', (req, res) => {
+        res.json(buyPageInfo)
       })
     }
   },

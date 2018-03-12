@@ -1,14 +1,16 @@
 <template>
   <div class="slide-show" @mouseover="clearInv" @mouseout="runInv">
     <div class="slide-img">
-      <!-- <a :href="slides[nowIndex].href"> -->
+      <router-link 
+      tag="a"
+      :to="{path: slides[nowIndex].href}">
         <transition name="slide-trans">
           <img v-if="isShow" :src="slides[nowIndex].src">
         </transition>
         <transition name="slide-trans-old">
           <img v-if="!isShow" :src="slides[nowIndex].src">
         </transition>
-      <!-- </a> -->
+      </router-link>
     </div>
     <h2>{{ slides[nowIndex].title }}
     <ul class="slide-pages">

@@ -17,8 +17,8 @@
           </div>
       </el-col>
       <el-col :span="16">
-          <router-view class="productlist" ></router-view>
-          <router-view class="productlist" name="second"></router-view>
+          <router-view class="productlist" :thisRouth = 'lastPath' ></router-view>
+          <router-view class="productlist" name="second" :thisRouth = 'lastPath' ></router-view>
       </el-col>
   </el-row>
 
@@ -50,16 +50,14 @@ export default {
     computed: {
         imgurl (){
             let localpath = this.$route.path
-            // let lestpatharry = this.$route.path.split("/")
-            // let lestpathlast = lestpatharry.length-1
-            // let lastpath = lestpathlast[lestpathlast]
-            // {for (let thisarry in this.product) {
-            //     if (thisarry.path ===lastpath){
-            //         thisarry.active = true
-            //     }
-            // }
-            // }
             return this.imgmap[localpath]
+        },
+        lastPath (){
+            let localpath = this.$route.path
+            let pathArry = localpath.split('/')
+            let pathNum = pathArry.length-1
+            let last = pathArry[pathNum]
+            return last
         }
     }
 }
@@ -81,6 +79,7 @@ export default {
     font-size: 18px;
     font-weight: 600;
     padding: 5px 0;
+    cursor:pointer;
 }
 .productlist li:hover {
     display: block;
@@ -89,6 +88,7 @@ export default {
     font-weight: 600;
     padding: 5px 0;
     background: #9be4c3;
+    cursor:pointer;
 }
 .fovusli {
     background: #4dbe8b;

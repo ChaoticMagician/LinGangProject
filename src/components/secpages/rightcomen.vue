@@ -8,17 +8,23 @@
 
 <script>
 export default {
+    props: {
+        thisRouth: {
+        default: 'forecast'
+        }
+    },
     created: function(){
-      this.$http.get('api/product').then(
-          (res)=>
-              this.product = res.data.data
-          ),(err) => {
+      this.$http.get('/api/buyPageInfo').then(
+          (res)=>{
+              this.product = res.data
+          },(err) => {
               console.log(err)
           }
+      )
     },
     data () {
       return {
-         product: []
+         product: {}
       }
     }
 }

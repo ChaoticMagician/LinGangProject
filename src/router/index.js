@@ -8,6 +8,7 @@ import rightcomenone from '@/components/secpages/rightcomenone.vue'
 Vue.use(Router)
 
 export default new Router({
+  // mode: 'history',
   routes: [
     {
       path: '/',

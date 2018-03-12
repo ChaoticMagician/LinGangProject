@@ -2,7 +2,7 @@
   <div >
     <div class="right-list"
     v-for="(item, index) in boardList"
-    :class="{'right-list-right' : index % 2 !==0}"
+    :class="{'right-list-right':index%2!==0}"
     >
       <div :style="{background: 'url('+item.urll+') no-repeat',backgroundPosition: '12px 12px'}">
         <h3>{{item.title}}</h3>
