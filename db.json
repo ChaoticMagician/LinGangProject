@@ -138,6 +138,7 @@
 		"table": [{
 				"title": "购买数量",
 				"type": "numselect",
+				"thisname": "buynum",
 				"vminfo": {
 					"minnum": 12,
 					"maxnum": 24,
@@ -149,6 +150,7 @@
 			{
 				"title": "购买数量",
 				"type": "numselect",
+				"thisname": "buynum2",
 				"vminfo": {
 					"minnum": 1,
 					"maxnum": 5,
@@ -160,6 +162,7 @@
 			{
 				"title": "购买数量",
 				"type": "numselect",
+				"thisname": "buynum3",
 				"vminfo": {
 					"minnum": 3,
 					"maxnum": 8,

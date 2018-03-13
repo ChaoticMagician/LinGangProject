@@ -18,23 +18,29 @@ export default {
             default: 1,
             bgcolor: "#ffffff"
           }
+      },
+      thisname: {
+        default: '2222'
       }
   },
   data (){
     return{
-    num: this.configinfo.minnum
+    num: this.configinfo.default
     }
   },
   watch: {
     num: function(newnum,oldnum){
-      this.$emit('on-chance',this.num)
+      let key = this.thisname
+      let num = this.num
+      // backobj[this.thisname] = this.num
+      this.$emit('on-chance',key,num)
     }
   },
   methods: {
     inputnum () {
         let fix
         fix = Number(this.num.toString().replace(/\D/g, ''))
-        if (fix > this.configinfo.maxnum || fix < this.configinfo.minnum) {
+        if (fix >= this.configinfo.maxnum || fix <= this.configinfo.minnum) {
         fix = this.configinfo.minnum
       }
         this.num = fix

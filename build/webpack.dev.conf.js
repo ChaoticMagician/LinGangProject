@@ -15,7 +15,7 @@ const express = require('express')
 const app = express()//请求server
 var appData = require('../db.json')//加载本地数据文件
 var productList = appData.productList//获取对应的本地数据
-var getNewsList = appData.getNewsList
+var getPrice = appData.getPrice
 var login = appData.login
 var getOrderList = appData.getOrderList
 var product = appData.product
@@ -64,11 +64,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           data: productList
         })//接口返回json数据，上面配置的数据seller就赋值给data请求后调用
       }),
-      app.get('/api/getNewsList', (req, res) => {
-        res.json({
-          errno: 0,
-          data: getNewsList
-        })
+      app.get('/api/getPrice', (req, res) => {
+        res.json(getPrice)
       }),
       app.get('/api/login', (req, res) => {
         res.json({
