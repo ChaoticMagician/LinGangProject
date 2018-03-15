@@ -33,13 +33,7 @@ export default {
                   this.nowbuyinfo[element.thisname] = element.vminfo.default
               });
 
-            this.price = this.$options.methods.chanceprice(this);
-
-            // let sunnum = 0
-            // for (let key in this.nowbuyinfo){
-            //     sunnum = sunnum +Number(this.nowbuyinfo[key])
-            // }
-            // this.price = sunnum
+              this.$options.methods.chanceprice.bind(this)();
 
           },(err) => {
               console.log(err)
@@ -59,25 +53,30 @@ export default {
             this.nowbuyinfo[key] = value
             console.log(this.nowbuyinfo)
             console.log(key,value)
-
-            this.$options.methods.chanceprice(this);
-
-            // let sunnum = 0
-            // for (let key in this.nowbuyinfo){
-            //     sunnum = sunnum +Number(this.nowbuyinfo[key])
-            // }
-            // this.price = sunnum
-            //     console.log(this.price)
-
+            this.$options.methods.chanceprice.bind(this)();
         },
-        chanceprice: function(Obj){
-            Obj.$http.get('/api/getPrice', Obj.nowbuyinfo).then(
-                (res)=>{
-                    Obj.price = res.data.amount
-                },(err)=>{
-                    console.log(err)
-                }
-            )
+        // chanceprice1: function(Obj){
+        //     Obj.$http.get('/api/getPrice', Obj.nowbuyinfo).then(
+        //         (res)=>{
+        //             Obj.price = res.data.amount
+        //         },(err)=>{
+        //             console.log(err)
+        //         }
+        //     )
+        // },
+        chanceprice: function(){
+            // this.$http.get('/api/getPrice', this.nowbuyinfo).then(
+            //     (res)=>{
+            //         this.price = res.data.amount
+            //     },(err)=>{
+            //         console.log(err)
+            //     }
+            // )
+            var sunnum = 0
+            for (var iterator in this.nowbuyinfo) {
+                sunnum = sunnum+this.nowbuyinfo[iterator]
+            }
+                this.price = sunnum
         }
     }
 }
